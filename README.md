@@ -1,69 +1,74 @@
-# Bicycle Benefits Madison
+***
 
-A mobile-first PWA for finding bicycle-friendly businesses in Madison, WI that offer discounts to cyclists. Built in an hour for a hackathon, lol. Find it at https://bb.samnesler.com
+# BadgerBicycle Rewards 🦡🚴
 
-<img width="645" height="1398" alt="image" src="https://github.com/user-attachments/assets/46c05a6b-3c18-4b58-9cfa-9397e11dc98a" />
+**Live Demo:** [https://badgerbicycle.sanyamgarg.com](https://badgerbicycle.sanyamgarg.com)
 
-## Features
+A streamlined, mobile-first companion app for the **Bicycle Benefits** program in Madison, WI.
 
-- **Interactive Map** - Dark-themed Mapbox map with business markers
-- **Live Location** - Shows your current position and businesses sorted by distance
-- **Bike Routing** - Red cycling route from your location to selected businesses
-- **Category Filtering** - Filter businesses by type (restaurants, shops, etc.)
-- **Bike Time Estimates** - Shows estimated cycling time to each business
-- **AI Assistant** - Claude-powered chatbot to help find businesses
-- **PWA Support** - Add to home screen for app-like experience
+Built during **Anthropic ClaudeHacks 2025**, this application modernizes how cyclists discover the 150+ local businesses offering rewards for riding.
 
-## Tech Stack
+## 💡 The Mission
+Madison is a platinum-level biking city with a thriving **Bicycle Benefits** community. While the program is fantastic, finding participating businesses while on a ride can be tricky.
 
-- **Frontend**: React 18, Vite, Tailwind CSS v4
-- **Maps**: Mapbox GL JS, react-map-gl
-- **Backend**: Cloudflare Workers
-- **AI**: Claude API (Haiku)
+**BadgerBicycle** bridges that gap. It takes the existing network of businesses and puts them into a fast, location-aware PWA (Progressive Web App) designed specifically for use on the handlebars.
 
-## Future work
+## ✨ Key Features
 
-- there's no reason it couldn't be expanded beyond Madison except that we didn't have time
-- better icons
-- probably remove the AI chatbot
+- **🗺️ Interactive Open Maps:** A clean, distraction-free map interface built with **Leaflet & OpenStreetMap**. Fast, free, and privacy-focused.
+- **📍 Instant Proximity:** Automatically sorts businesses by distance from your current location, helping you find the closest coffee, beer, or grocery discount instantly.
+- **📱 Native Feel:** Installed as a PWA, it works seamlessly on iOS and Android with a touch-optimized interface.
+- **🌗 Dark Mode:** Automatic dark mode support using Tailwind CSS v4, perfect for evening commutes.
+- **⚡ High Performance:** Delivered as a lightweight static site for near-instant load times, even on spotty cellular connections.
 
-## Setup
+## 🏗 Tech Stack
 
-1. Install dependencies:
+- **Frontend:** React 18, Vite
+- **Styling:** Tailwind CSS v4
+- **Mapping:** Leaflet, React-Leaflet, OpenStreetMap Tiles
+- **Infrastructure:** Docker, Nginx (Self-Hosted)
+- **Data:** Powered by the [Bicycle Benefits](https://bicyclebenefits.org) program
+
+## 🚀 Running Locally
+
+1. **Clone the repository:**
    ```bash
-   pnpm install
+   git clone https://github.com/sanyamgarg/badgerbike-rewards.git
+   cd badgerbike-rewards
    ```
 
-2. Create `.env` file with your Mapbox token:
-   ```
-   VITE_MAPBOX_TOKEN=your_mapbox_token
-   ```
-
-3. Run development server:
+2. **Install dependencies:**
    ```bash
-   pnpm dev
+   npm install
    ```
 
-## Deployment
-
-1. Build the app:
+3. **Run locally:**
    ```bash
-   pnpm build
+   npm run dev
    ```
 
-2. Add Anthropic API key as secret:
+## 🐳 Deployment
+
+This project is containerized for easy self-hosting.
+
+1. **Build the assets:**
    ```bash
-   pnpm wrangler secret put ANTHROPIC_API_KEY
+   npm run build
    ```
 
-3. Deploy to Cloudflare:
-   ```bash
-   pnpm wrangler deploy
+2. **Run with Docker Compose:**
+   ```yaml
+   services:
+     web:
+       image: nginx:alpine
+       volumes:
+         - ./dist:/usr/share/nginx/html:ro
+         - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+       ports:
+         - "80:80"
    ```
 
-## API
+## 🤝 Credits
 
-Uses the Bicycle Benefits API to fetch participating businesses in Madison:
-```
-https://bicyclebenefits.org/members?city_id=6
-```
+- Built for **Anthropic ClaudeHacks 2025**.
+- All business data and discounts provided by the incredible [Bicycle Benefits](https://bicyclebenefits.org) program. Buy a sticker and support them!
