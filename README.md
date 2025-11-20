@@ -70,5 +70,5 @@ This project is containerized for easy self-hosting.
 
 ## 🤝 Credits
 
-- Built for **Anthropic ClaudeHacks 2025**.
+- Built for **Anthropic ClaudeHacks 2025** @ University of Wisconsin - Madison.
 - All business data and discounts provided by the incredible [Bicycle Benefits](https://bicyclebenefits.org) program. Buy a sticker and support them!
