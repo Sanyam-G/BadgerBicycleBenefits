@@ -1,6 +1,6 @@
 ***
 
-# BadgerBicycle Rewards 🦡🚴
+# BadgerBicycleBenefits 🦡🚴
 
 **Live Demo:** [https://badgerbicycle.sanyamgarg.com](https://badgerbicycle.sanyamgarg.com)
 
